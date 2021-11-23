@@ -8,7 +8,7 @@ export default (props) => {
   const { children } = props;
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       <Header />
       <SubNav />
       <div className="container mx-auto flex flex-wrap py-6">

@@ -58,7 +58,7 @@ export default () => {
         </div>
       </article>
 
-      <div className="w-full flex pt-6">
+      {/* <div className="w-full flex pt-6">
         <a
           href="#"
           className="w-1/2 bg-white shadow hover:shadow-md text-left p-6"
@@ -77,9 +77,9 @@ export default () => {
           </p>
           <p className="pt-2">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</p>
         </a>
-      </div>
+      </div> */}
 
-      <div className="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
+      {/* <div className="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
         <div className="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
           <img
             src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
@@ -107,7 +107,7 @@ export default () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
     </Loading>
   );
 };

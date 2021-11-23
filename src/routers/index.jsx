@@ -6,7 +6,7 @@ import Loading from "@/components/layout";
 
 const loopRouter = (arr) => {
   return arr.map((x) => {
-    const RouteCom = lazy(() => import(`../views/${x.component}`));
+    const RouteCom = lazy(() => import(`../views/${x.component}/index.jsx`));
     const { isDefaultLayout = true } = x;
     return (
       <Route

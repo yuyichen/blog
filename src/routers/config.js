@@ -4,11 +4,11 @@ export default [
     path: "/",
     component: "home",
   },
-  {
-    name: "文章列表",
-    path: "/posts",
-    component: "post",
-  },
+  // {
+  //   name: "文章列表",
+  //   path: "/posts",
+  //   component: "post",
+  // },
   {
     name: "文章详情",
     path: "/post/:id",
