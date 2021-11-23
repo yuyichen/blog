@@ -12,7 +12,7 @@ export default [
   {
     name: "文章详情",
     path: "/post/:id",
-    component: "post/detail",
+    component: "post",
   },
   {
     name: "关于",
