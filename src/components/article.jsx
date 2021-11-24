@@ -13,8 +13,9 @@ export default (props) => {
           style={{
             paddingBottom: "61%",
             backgroundImage: `url(${
-              detail.cover ||
-              `https://source.unsplash.com/collection/1346951/1000x500?sig=${detail.id}`
+              detail.cover
+                ? `/api${detail.cover.url}`
+                : `https://source.unsplash.com/collection/1346951/1000x500?sig=${detail.id}`
             })`,
           }}
         ></div>
