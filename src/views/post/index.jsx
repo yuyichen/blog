@@ -45,6 +45,7 @@ export default () => {
             {dayjs(detail.published_at).format("YYYY-MM-DD: HH:mm:ss")}
           </p>
           <ReactMarkdown
+            linkTarget="_blank"
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeHighlight]}
             components={
