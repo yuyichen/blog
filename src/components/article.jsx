@@ -1,14 +1,37 @@
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
+import { motion } from "framer-motion";
 
 export default (props) => {
   const { detail } = props;
   const detailLink = `/post/${detail.id}`;
 
+  const cardVariants = {
+    offscreen: {
+      y: 50,
+      scale: 0.9,
+    },
+    onscreen: {
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
-    <article className="flex flex-col shadow hover:shadow-lg my-4 w-full">
+    <motion.article
+      className="flex flex-col shadow hover:shadow-lg my-4 w-full"
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.8 }}
+    >
       <Link to={detailLink} className="hover:opacity-75">
-        <div
+        <motion.div
+          variants={cardVariants}
           className="h-0 bg-center bg-cover bg-no-repeat bg-gray-200"
           style={{
             paddingBottom: "61%",
@@ -18,7 +41,7 @@ export default (props) => {
                 : `https://source.unsplash.com/collection/1346951/1000x500?sig=${detail.id}`
             })`,
           }}
-        ></div>
+        ></motion.div>
       </Link>
       <div className="bg-white flex flex-col justify-start p-6">
         {Array.isArray(detail.tags) &&
@@ -57,6 +80,6 @@ export default (props) => {
           阅读全文 <i className="fas fa-arrow-right"></i>
         </Link>
       </div>
-    </article>
+    </motion.article>
   );
 };

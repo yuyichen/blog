@@ -42,9 +42,10 @@ export default () => {
         start={query._start}
         total={count}
         pageSize={query._limit}
-        onChange={(index) =>
-          setQuery({ ...query, _start: query._limit * index })
-        }
+        onChange={(index) => {
+          setQuery({ ...query, _start: query._limit * index });
+          window.scrollTo(0, 0);
+        }}
       />
     </Loading>
   );
