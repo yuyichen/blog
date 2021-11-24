@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm"; // github风格表格、链接、checklist
 import Loading from "@/components/loading";
 import rehypeHighlight from 'rehype-highlight'
 import 'highlight.js/styles/atom-one-dark-reasonable.css';
+import '@/assets/markdown-theme/typora-lark.css';
 
 export default () => {
   const params = useParams();
@@ -22,7 +23,7 @@ export default () => {
 
   return (
     <Loading loading={loading}>
-      <article className="flex flex-col shadow my-4">
+      <article className="flex flex-col shadow my-4" id="write">
         <img
           className="hover:opacity-75"
           src="https://source.unsplash.com/collection/1346951/1000x500?sig=1"
