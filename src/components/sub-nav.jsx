@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 export default () => {
   const [open, setOpen] = useState(false);
@@ -24,13 +24,34 @@ export default () => {
         }`}
       >
         <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-          <NavLink to="/" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `hover:bg-gray-400 rounded py-2 px-4 mx-2 ${
+                isActive ? "bg-gray-400 text-white" : ""
+              }`
+            }
+          >
             技术
           </NavLink>
-          <NavLink to="/" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+          <NavLink
+            to="/design"
+            className={({ isActive }) =>
+              `hover:bg-gray-400 rounded py-2 px-4 mx-2 ${
+                isActive ? "bg-gray-400 text-white" : ""
+              }`
+            }
+          >
             设计
           </NavLink>
-          <NavLink to="/" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">
+          <NavLink
+            to="/news"
+            className={({ isActive }) =>
+              `hover:bg-gray-400 rounded py-2 px-4 mx-2 ${
+                isActive ? "bg-gray-400 text-white" : ""
+              }`
+            }
+          >
             资讯
           </NavLink>
         </div>

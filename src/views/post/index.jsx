@@ -6,8 +6,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm"; // github风格表格、链接、checklist
 import Loading from "@/components/loading";
 import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/atom-one-dark-reasonable.css";
-import "@/assets/markdown-theme/typora-lark.css";
 
 export default () => {
   const params = useParams();
