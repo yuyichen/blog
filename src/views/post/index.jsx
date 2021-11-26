@@ -21,8 +21,11 @@ export default () => {
     const { data } = await axios.get(`/api/posts/${params.id}`);
     setDetail(data);
     setLoading(false);
-    gallery?.destroy();
+    
     setGallery(new Viewer(document.getElementById("acticleContent")));
+    return () => {
+      gallery?.destroy();
+    }
   }, [params.id]);
 
   return (
