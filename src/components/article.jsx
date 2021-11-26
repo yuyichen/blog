@@ -69,9 +69,9 @@ export default (props) => {
           , 发布于 {dayjs(detail.published_at).format("YYYY-MM-DD: HH:mm:ss")}
         </p>
         {detail.description && (
-          <a href="#" className="pb-6">
+          <Link to={detailLink} className="pb-6">
             {detail.description}
-          </a>
+          </Link>
         )}
         <Link
           to={detailLink}

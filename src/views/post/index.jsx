@@ -7,17 +7,22 @@ import remarkGfm from "remark-gfm"; // github风格表格、链接、checklist
 import Loading from "@/components/loading";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
+import Viewer from "viewerjs";
+import "viewerjs/dist/viewer.min.css";
 
 export default () => {
   const params = useParams();
   const [loading, setLoading] = useState(false);
   const [detail, setDetail] = useState({});
+  const [gallery, setGallery] = useState();
 
   useEffect(async () => {
     setLoading(true);
     const { data } = await axios.get(`/api/posts/${params.id}`);
     setDetail(data);
     setLoading(false);
+    gallery?.destroy();
+    setGallery(new Viewer(document.getElementById("acticleContent")));
   }, [params.id]);
 
   return (
@@ -43,21 +48,34 @@ export default () => {
             <a className="font-semibold hover:text-gray-800">羽衣尘</a>, 发布于{" "}
             {dayjs(detail.published_at).format("YYYY-MM-DD: HH:mm:ss")}
           </p>
-          <ReactMarkdown
-            linkTarget="_blank"
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeHighlight]}
-            components={
-              {
+          <div id="acticleContent">
+            <ReactMarkdown
+              linkTarget="_blank"
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeHighlight]}
+              components={{
                 // // Use h2s instead of h1s
                 // h1: "h2",
                 // // Use a component instead of hrs
                 // hr: ({ node, ...props }) => <MyFancyRule {...props} />,
-              }
-            }
-          >
-            {detail.content}
-          </ReactMarkdown>
+                img: ({ node, ...props }) => (
+                  <img
+                    {...props}
+                    onClick={() => {
+                      if (gallery) {
+                        const index = gallery.images.findIndex(
+                          (x) => x.src === props.src
+                        );
+                        gallery.view(index);
+                      }
+                    }}
+                  />
+                ),
+              }}
+            >
+              {detail.content}
+            </ReactMarkdown>
+          </div>
         </div>
       </article>
     </Loading>
