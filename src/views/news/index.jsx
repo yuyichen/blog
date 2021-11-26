@@ -24,7 +24,7 @@ export default () => {
     <div id="write">
       <Loading loading={loading}>
         <div className="text-sm text-gray-400 text-center">
-          来源：《码农周刊》 更新于{dayjs(listData.updated).format("YYYY-MM-DD mm:ss")}
+          来源：《技术小黑屋》 更新于{dayjs(listData.updated).format("YYYY-MM-DD mm:ss")}
         </div>
         <ul>
           {(listData.entry || []).map((x, i) => {

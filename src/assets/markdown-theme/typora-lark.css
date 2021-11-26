@@ -124,6 +124,7 @@
 }
 #write pre, #write xmp, #write plaintext, #write listing {
   font-family: var(--monospace);
+  overflow: auto;
 }
 #write blockquote > :first-child {
   margin-top: 0;
