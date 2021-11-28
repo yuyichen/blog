@@ -152,6 +152,7 @@
   border-width: 1px;
 }
 #write img {
+  width: 100%;
   max-width: 100%;
   height: auto;
 }
