@@ -287,13 +287,13 @@
   border-left: 4px solid var(--primary-color);
   color: rgba(31, 35, 41, 0.7);
 }
-#write code {
+#write pre code {
   border-radius: 4px;
   margin-top: 20px;
   margin-bottom: 20px;
   box-shadow: 4px 4px 30px #666;
 }
-#write code::-webkit-scrollbar {
+#write pre code::-webkit-scrollbar {
   /* height: 8px; */
   /* background-color: #999; */
 }

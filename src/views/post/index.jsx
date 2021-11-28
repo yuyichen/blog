@@ -22,11 +22,11 @@ export default () => {
     const { data } = await axios.get(`/api/posts/${params.id}`);
     setDetail(data);
     setLoading(false);
-    
+
     setGallery(new Viewer(document.getElementById("acticleContent")));
     return () => {
       gallery?.destroy();
-    }
+    };
   }, [params.id]);
 
   return (
@@ -75,7 +75,10 @@ export default () => {
                     }}
                   />
                 ),
-                code: ({ node, ...props }) => <CodeBox {...props} />,
+                code: ({ node, ...props }) => {
+                  const { inline, ...rest } = props;
+                  return inline ? <code {...rest} /> : <CodeBox {...rest} />;
+                },
               }}
             >
               {detail.content}

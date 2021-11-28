@@ -2,7 +2,7 @@ export default (props) => {
   const { children, ...rest } = props;
   return (
     <code {...rest}>
-      <div className="mb-6">
+      <div className="mb-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="54"
