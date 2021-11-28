@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm"; // github风格表格、链接、checklist
 import Loading from "@/components/loading";
 import CodeBox from "@/components/code-box";
 import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 import Viewer from "viewerjs";
 import "viewerjs/dist/viewer.min.css";
@@ -56,7 +57,7 @@ export default () => {
             <ReactMarkdown
               linkTarget="_blank"
               remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeHighlight]}
+              rehypePlugins={[rehypeHighlight, rehypeRaw]}
               components={{
                 // // Use h2s instead of h1s
                 // h1: "h2",

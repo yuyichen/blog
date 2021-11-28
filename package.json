@@ -18,13 +18,14 @@
     "react-markdown": "^7.1.0",
     "react-router-dom": "^6.0.2",
     "rehype-highlight": "^5.0.0",
+    "rehype-raw": "^6.1.0",
     "remark-code-screenshot": "^1.0.0",
     "remark-gfm": "^3.0.1",
-    "remark-torchlight": "^0.0.2",
     "viewerjs": "^1.10.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.0",
+    "less": "^4.1.2",
     "vite": "^2.6.4",
     "vite-plugin-windicss": "^1.5.1",
     "windicss": "^3.2.1"
