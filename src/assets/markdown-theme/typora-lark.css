@@ -292,7 +292,7 @@
   border-radius: 4px;
   margin-top: 20px;
   margin-bottom: 20px;
-  box-shadow: 4px 4px 30px #666;
+  box-shadow: 4px 4px 20px #666;
 }
 #write pre code::-webkit-scrollbar {
   /* height: 8px; */
