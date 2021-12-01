@@ -59,6 +59,7 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  word-break: break-all;
 }
 #write > *:first-child {
   margin-top: 0 !important;
