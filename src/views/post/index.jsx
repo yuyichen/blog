@@ -95,11 +95,13 @@ export default () => {
             </ReactMarkdown>
           </div>
         </div>
-        <div className="border-t border-gray-100">
+      </article>
+      <div className="p-4">
+        {detail.title && (
           <GitalkComponent
             options={{
-              clientID: import.meta.env.GITALK_ID,
-              clientSecret: import.meta.env.GITALK_SECRET,
+              clientID: import.meta.env.VITE_GITALK_ID,
+              clientSecret: import.meta.env.VITE_GITALK_SECRET,
               owner: "yuyichen",
               repo: "blog",
               admin: ["yuyichen"],
@@ -108,8 +110,8 @@ export default () => {
               title: detail.title,
             }}
           />
-        </div>
-      </article>
+        )}
+      </div>
     </Loading>
   );
 };
