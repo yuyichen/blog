@@ -11,6 +11,8 @@ import rehypeRaw from "rehype-raw";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 import Viewer from "viewerjs";
 import "viewerjs/dist/viewer.min.css";
+import GitalkComponent from "gitalk/dist/gitalk-component";
+import "gitalk/dist/gitalk.css";
 
 export default () => {
   const params = useParams();
@@ -75,7 +77,12 @@ export default () => {
                   const { inline, ...rest } = props;
                   return inline ? (
                     <code
-                      className="border border-gray-200 bg-gray-100 p-1 rounded-sm"
+                      className="p-1 rounded-sm"
+                      style={{
+                        color: "#c7254e",
+                        backgroundColor: "#f9f2f4",
+                        fontFamily: "monospace,monospace",
+                      }}
                       {...rest}
                     />
                   ) : (
@@ -87,6 +94,20 @@ export default () => {
               {detail.content}
             </ReactMarkdown>
           </div>
+        </div>
+        <div className="border-t border-gray-100">
+          <GitalkComponent
+            options={{
+              clientID: import.meta.env.GITALK_ID,
+              clientSecret: import.meta.env.GITALK_SECRET,
+              owner: "yuyichen",
+              repo: "blog",
+              admin: ["yuyichen"],
+              id: params.id,
+              labels: ["文章评论"],
+              title: detail.title,
+            }}
+          />
         </div>
       </article>
     </Loading>
