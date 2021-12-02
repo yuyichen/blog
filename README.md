@@ -6,7 +6,7 @@
 - tailwind.css
 - strapi
 
-## 评论 gittalk 使用
+## 评论 gitalk 使用
 
 `views/post/index.jsx`使用了 gitalk 评论插件
 创建一个[github application](https://github.com/settings/applications/new)

@@ -6,12 +6,12 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm"; // github风格表格、链接、checklist
 import Loading from "@/components/loading";
 import CodeBox from "@/components/code-box";
-import rehypeHighlight from "rehype-highlight";
-import rehypeRaw from "rehype-raw";
+import rehypeHighlight from "rehype-highlight"; // 代码高亮
+import rehypeRaw from "rehype-raw"; // 支持markdown中的html代码
 import "highlight.js/styles/atom-one-dark-reasonable.css";
-import Viewer from "viewerjs";
+import Viewer from "viewerjs"; // 图片预览
 import "viewerjs/dist/viewer.min.css";
-import GitalkComponent from "gitalk/dist/gitalk-component";
+import GitalkComponent from "gitalk/dist/gitalk-component"; // 评论插件
 import "gitalk/dist/gitalk.css";
 
 export default () => {
@@ -47,7 +47,7 @@ export default () => {
           </div>
           <p className="text-sm pb-8">
             By
-            <a className="font-semibold hover:text-gray-800">羽衣尘</a>, 发布于{" "}
+            <a className="font-semibold hover:text-gray-800">羽衣尘</a>, 发布于
             {dayjs(detail.published_at).format("YYYY-MM-DD: HH:mm:ss")}
           </p>
           <div id="acticleContent">
