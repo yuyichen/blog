@@ -6,11 +6,11 @@
 - tailwind.css
 - strapi
 
-## 评论 gitalk 使用
+## 评论插件 [giscus](https://giscus.app/zh-CN) 使用
 
-`views/post/index.jsx`使用了 gitalk 评论插件
-创建一个[github application](https://github.com/settings/applications/new)
-获取 `Client ID` 和 `Client Secret`,
+`views/post/index.jsx`使用了 giscus 评论插件
+参考官方文档，生成repoId和categoryId
+
 `.env.expample`文件改名为`.env`加入相关配置项
 
 ## TODO

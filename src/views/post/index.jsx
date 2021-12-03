@@ -11,8 +11,7 @@ import rehypeRaw from "rehype-raw"; // 支持markdown中的html代码
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 import Viewer from "viewerjs"; // 图片预览
 import "viewerjs/dist/viewer.min.css";
-import GitalkComponent from "gitalk/dist/gitalk-component"; // 评论插件
-import "gitalk/dist/gitalk.css";
+import { Giscus } from "@giscus/react"; // 评论插件
 
 export default () => {
   const params = useParams();
@@ -98,17 +97,17 @@ export default () => {
       </article>
       <div className="p-4">
         {detail.title && (
-          <GitalkComponent
-            options={{
-              clientID: import.meta.env.VITE_GITALK_ID,
-              clientSecret: import.meta.env.VITE_GITALK_SECRET,
-              owner: "yuyichen",
-              repo: "blog",
-              admin: ["yuyichen"],
-              id: params.id,
-              labels: ["文章评论"],
-              title: detail.title,
-            }}
+          <Giscus
+            repo="yuyichen/blog"
+            repoId={import.meta.env.VITE_REPO_ID}
+            category="Announcements"
+            categoryId={import.meta.env.VITE_CATGORY_ID}
+            mapping="url"
+            reactionsEnabled="1"
+            emitMetadata="0"
+            theme="light"
+            lang="zh-CN"
+            // term="..."
           />
         )}
       </div>
