@@ -42,7 +42,7 @@ export default (props) => {
             key={`${x}_${i}`}
             onClick={() => changePage(x - 1)}
             className={classNames(
-              "h-10 w-10 hover:bg-blue-600 hover:text-white font-semibold text-sm flex items-center justify-center cursor-pointer",
+              "h-10 w-10 hover:bg-blue-600 hover:text-white font-semibold text-sm flex items-center justify-center cursor-pointer transition",
               current + 1 === x ? "bg-blue-800  text-white" : "text-gray-800"
             )}
           >

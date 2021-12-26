@@ -9,6 +9,7 @@ export default () => {
     _start: 0,
     _limit: 3,
     _sort: "published_at:DESC",
+    "_where[category.id]": 1,
   });
   const [list, setList] = useState([]);
   const [count, setCount] = useState(0);
@@ -27,6 +28,7 @@ export default () => {
     setLoading(false);
     setList(data1);
     setCount(data2);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {

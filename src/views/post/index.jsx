@@ -23,6 +23,7 @@ export default () => {
     setLoading(true);
     const { data } = await axios.get(`/api/posts/${params.id}`);
     setDetail(data);
+    window.scrollTo(0, 0);
     setLoading(false);
 
     setGallery(new Viewer(document.getElementById("acticleContent")));
@@ -46,8 +47,8 @@ export default () => {
           </div>
           <p className="text-sm pb-8">
             By
-            <a className="font-semibold hover:text-gray-800">羽衣尘</a>, 发布于
-            {dayjs(detail.published_at).format("YYYY-MM-DD: HH:mm:ss")}
+            <a className="font-semibold hover:text-gray-800">羽衣尘</a>, 更新于
+            {dayjs(detail.updated_at).format("YYYY-MM-DD: HH:mm:ss")}
           </p>
           <div id="acticleContent">
             <ReactMarkdown

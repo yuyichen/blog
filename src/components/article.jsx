@@ -6,8 +6,8 @@ export default (props) => {
   const detailLink = `/post/${detail.id}`;
 
   return (
-    <article className="flex flex-col shadow hover:shadow-lg my-4 w-full">
-      <Link to={detailLink} className="hover:opacity-75">
+    <article className="flex flex-col shadow hover:shadow-lg my-4 w-full transition">
+      <Link to={detailLink} className="hover:opacity-75 transition">
         <div
           className="h-0 bg-center bg-cover bg-no-repeat bg-gray-200"
           style={{
@@ -43,7 +43,7 @@ export default (props) => {
           <a href="#" className="font-semibold hover:text-gray-800">
             羽衣尘
           </a>
-          , 发布于 {dayjs(detail.published_at).format("YYYY-MM-DD: HH:mm:ss")}
+          , 更新于 {dayjs(detail.updated_at).format("YYYY-MM-DD: HH:mm:ss")}
         </p>
         {detail.description && (
           <Link to={detailLink} className="pb-6">
