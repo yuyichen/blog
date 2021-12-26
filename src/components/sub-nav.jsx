@@ -27,27 +27,27 @@ export default () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `hover:bg-gray-400 rounded py-2 px-4 mx-2 ${
+              `hover:bg-gray-400 transition rounded py-2 px-4 mx-2 ${
                 isActive ? "bg-gray-400 text-white" : ""
               }`
             }
           >
             技术
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/design"
             className={({ isActive }) =>
-              `hover:bg-gray-400 rounded py-2 px-4 mx-2 ${
+              `hover:bg-gray-400 transition rounded py-2 px-4 mx-2 ${
                 isActive ? "bg-gray-400 text-white" : ""
               }`
             }
           >
             设计
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="/news"
             className={({ isActive }) =>
-              `hover:bg-gray-400 rounded py-2 px-4 mx-2 ${
+              `hover:bg-gray-400 transition rounded py-2 px-4 mx-2 ${
                 isActive ? "bg-gray-400 text-white" : ""
               }`
             }

@@ -43,19 +43,19 @@ export default (props) => {
           <a href="#" className="font-semibold hover:text-gray-800">
             羽衣尘
           </a>
-          , 更新于 {dayjs(detail.updated_at).format("YYYY-MM-DD: HH:mm:ss")}
+          ， 更新于 {dayjs(detail.updated_at).format("YYYY-MM-DD HH:mm:ss")}
         </p>
         {detail.description && (
-          <Link to={detailLink} className="pb-6">
+          <Link to={detailLink} className="pb-2">
             {detail.description}
           </Link>
         )}
-        <Link
+        {/* <Link
           to={detailLink}
           className="uppercase text-gray-800 hover:text-black"
         >
           阅读全文 <i className="fas fa-arrow-right"></i>
-        </Link>
+        </Link> */}
       </div>
     </article>
   );
