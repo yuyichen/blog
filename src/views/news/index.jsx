@@ -1,43 +1,56 @@
-import { useState, useEffect } from "react";
-import { XMLParser } from "fast-xml-parser";
-import axios from "axios";
-import Loading from "@/components/loading";
+import { useEffect, useState } from "react";
+import PostList from "@/components/post-list";
+import Markdown from "@/components/markdown";
 import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/zh-cn";
+dayjs.locale("zh-cn");
+
+dayjs.extend(relativeTime);
 
 export default () => {
-  const [loading, setLoading] = useState(false);
-  const [listData, setListData] = useState({});
+  const renderItem = (post, index) => {
+    const updateMoment = dayjs(post.updated_at);
+    const isUpdateRecent = dayjs() - updateMoment < 7 * 24 * 3600000;
 
-  const getListData = async () => {
-    setLoading(true);
-    const { data } = await axios.get("https://droidyue.com/atom.xml");
-    const result = new XMLParser().parse(data);
-    setListData(result?.feed || {});
-    setLoading(false);
+    return (
+      <div className="flex border-b" key={post.id}>
+        <div className="pt-4 pr-4" style={{ width: 80 }}>
+          <img src="https://cdn.yuyichen.space/avatar.jpg" alt="头像" />
+        </div>
+        <div className="flex-1 py-4 rounded mb-4">
+          {post.description && (
+            <div className="pb-4 mb-4 border-b">{post.description}</div>
+          )}
+          <div className="p-4 bg-gray-100 rounded-sm">
+            <a href={post.link} target="_blank" className="block ">
+              <div>{post.title}</div>
+            </a>
+            {post.content && (
+              <div className="border-t pt-4 mt-2">
+                <Markdown>{post.content}</Markdown>
+              </div>
+            )}
+          </div>
+          <div className="text-xs text-gray-400 mt-4">
+            {isUpdateRecent
+              ? updateMoment.fromNow()
+              : updateMoment.format("YYYY-MM-DD HH:mm:ss")}
+          </div>
+        </div>
+      </div>
+    );
   };
-
-  useEffect(() => {
-    getListData();
-  }, []);
 
   return (
     <div id="write">
-      <Loading loading={loading}>
-        <div className="text-sm text-gray-400 text-center">
-          来源：《技术小黑屋》 更新于{dayjs(listData.updated).format("YYYY-MM-DD mm:ss")}
-        </div>
-        <ul>
-          {(listData.entry || []).map((x, i) => {
-            return (
-              <ol key={x.id}>
-                <a href={x.id} target="_blank">
-                  <h3>{i+1}. {x.title}</h3>
-                </a>
-              </ol>
-            );
-          })}
-        </ul>
-      </Loading>
+      <PostList
+        defaultQuery={{
+          _limit: 5,
+          "_where[category.id]": 2,
+        }}
+        renderItem={renderItem}
+      />
     </div>
   );
 };

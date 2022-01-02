@@ -156,9 +156,6 @@
   max-width: 100%;
   height: auto;
 }
-#acticleContent img {
-  cursor: zoom-in;
-}
 #write li {
   word-wrap: break-all;
 }

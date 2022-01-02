@@ -52,7 +52,7 @@ export default () => {
               }`
             }
           >
-            资讯
+            观点
           </NavLink>
         </div>
       </div>
