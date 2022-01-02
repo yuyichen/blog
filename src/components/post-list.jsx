@@ -18,7 +18,7 @@ export default (props) => {
   return (
     <Loading loading={loading} className="w-full">
       {list.map(renderItem)}
-      {count > 0 && (
+      {count > query._limit && (
         <Pagination
           start={query._start}
           total={count}

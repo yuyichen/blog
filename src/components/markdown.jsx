@@ -39,7 +39,7 @@ export default (props) => {
               className={classNames(props.className, "zoom-in")}
               onClick={() => {
                 if (gallery) {
-                  const index = gallery?.images.findIndex(
+                  const index = gallery.images?.findIndex(
                     (x) => x.src === props.src
                   );
                   gallery.view(index);
