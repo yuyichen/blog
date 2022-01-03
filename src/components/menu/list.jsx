@@ -32,7 +32,7 @@ const menus = [
 export default () => (
   <motion.ul
     variants={variants}
-    className="relative pt-4 overflow-hidden md:pt-0 md:container md:mx-auto"
+    className="relative my-0 pt-4 overflow-hidden md:pt-0 md:container md:mx-auto"
   >
     {menus.map((x) => (
       <MenuItem key={x.link} {...x} />
