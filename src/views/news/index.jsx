@@ -23,9 +23,12 @@ export default () => {
             <div className="pb-4 mb-4 border-b">{post.description}</div>
           )}
           <div className="p-4 bg-gray-100 rounded-sm">
-            <a href={post.link} target="_blank" className="block ">
-              <div>{post.title}</div>
-            </a>
+            <div>
+              <span className="iconfont icon-link mr-2" />
+              <a href={post.link} target="_blank">
+                {post.title}
+              </a>
+            </div>
             {post.content && (
               <div className="border-t pt-4 mt-2">
                 <Markdown>{post.content}</Markdown>
