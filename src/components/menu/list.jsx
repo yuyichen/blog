@@ -3,7 +3,7 @@ import MenuItem from "./item";
 
 const variants = {
   open: {
-    height: 'auto',
+    height: "auto",
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
   },
   closed: {
@@ -16,15 +16,24 @@ const menus = [
   {
     link: "/",
     title: "技术",
+    checkActive: (pathname, link) => {
+      return pathname === "/" || pathname.startsWith("/post");
+    },
   },
   {
     link: "/news",
     title: "观点",
+    checkActive: (pathname, link) => {
+      return pathname.startsWith("/news");
+    },
   },
 ];
 
 export default () => (
-  <motion.ul variants={variants} className="relative pt-4 overflow-hidden">
+  <motion.ul
+    variants={variants}
+    className="relative pt-4 overflow-hidden md:pt-0 md:container md:mx-auto"
+  >
     {menus.map((x) => (
       <MenuItem key={x.link} {...x} />
     ))}

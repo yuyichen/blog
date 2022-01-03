@@ -37,9 +37,11 @@ export default () => {
   useEffect(() => {
     if (isOpen) {
       setNavCls("bottom-0 nav-width");
+      document.body.classList.add("overflow-hidden");
     } else {
       setTimeout(() => {
         setNavCls("");
+        document.body.classList.remove("overflow-hidden");
       }, 2000);
     }
   }, [isOpen]);
@@ -48,7 +50,10 @@ export default () => {
     <>
       {isOpen && <div className="fixed z-1 inset-0" onClick={toggleOpen} />}
       <motion.nav
-        className={classNames("fixed z-2 top-0 left-0 pb-4 pr-4", navCls)}
+        className={classNames(
+          "fixed z-2 top-0 left-0 pb-4 pr-4 md:hidden",
+          navCls
+        )}
         initial={false}
         animate={isOpen ? "open" : "closed"}
         custom={height}
@@ -59,6 +64,13 @@ export default () => {
           variants={sidebar}
         />
         <MenuToggle toggle={toggleOpen} />
+        <Navigation />
+      </motion.nav>
+      <motion.nav
+        className={classNames(
+          "hidden md:block fixed z-1 top-0 left-0 right-0 bg-gray-200 bg-opacity-60 shadow backdrop-filter backdrop-blur"
+        )}
+      >
         <Navigation />
       </motion.nav>
     </>

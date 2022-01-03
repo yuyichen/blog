@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import classNames from "classnames";
 
 const variants = {
   open: {
@@ -18,13 +19,17 @@ const variants = {
   },
 };
 
-export default ({ link, icon, title }) => {
+export default ({ link, icon, title, checkActive }) => {
+  const { pathname } = useLocation();
+  const isActive = checkActive(pathname, link);
   return (
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="p-4 block"
+      className={classNames("p-4 block md:inline-block", {
+        "font-bold": isActive,
+      })}
     >
       <NavLink className="block" to={link}>
         {icon && <span className={`iconfont ${icon}`} />}
