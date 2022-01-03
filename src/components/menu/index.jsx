@@ -1,10 +1,9 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useCycle } from "framer-motion";
 import useDimensions from "./useDimensions";
 import MenuToggle from "./toggle";
 import Navigation from "./list";
 import classNames from "classnames";
-import { useEffect } from "react/cjs/react.development";
 
 const sidebar = {
   open: (height = 1000) => ({
