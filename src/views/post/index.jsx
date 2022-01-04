@@ -13,10 +13,18 @@ export default () => {
 
   useEffect(async () => {
     setLoading(true);
+    const oldTitle = document.title;
     const { data } = await axios.get(`/api/posts/${params.id}`);
     setDetail(data);
     window.scrollTo(0, 0);
     setLoading(false);
+    if (data.title) {
+      document.title = `${oldTitle}-${data.title}`;
+    }
+
+    return () => {
+      document.title = oldTitle;
+    };
   }, [params.id]);
 
   return (
