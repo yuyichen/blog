@@ -33,10 +33,10 @@ export default () => {
         {detail.cover && (
           <img className="hover:opacity-75" src={`/api${detail.cover.url}`} />
         )}
-        <div className="bg-white flex flex-col justify-start p-6">
-          <a className="text-blue-700 text-sm font-bold uppercase pb-4">
-            Technology
-          </a>
+        <div className="bg-white p-6">
+          <span className="inline-block text-xs uppercase px-2 py-1 mb-4 border border-sky-400 text-sky-400 rounded mr-4">
+            {detail.link ? '转发文章': '原创文章'}
+          </span>
           <div className="text-3xl font-bold hover:text-gray-700 pb-4">
             {detail.title}
           </div>

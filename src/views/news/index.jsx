@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PostList from "@/components/post-list";
 import Markdown from "@/components/markdown";
+import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/zh-cn";
@@ -39,6 +40,7 @@ export default () => {
             {isUpdateRecent
               ? updateMoment.fromNow()
               : updateMoment.format("YYYY-MM-DD HH:mm:ss")}
+              <Link className="float-right mr-4 iconfont icon-pinglun" to={`/post/${post.id}`}></Link>
           </div>
         </div>
       </div>
