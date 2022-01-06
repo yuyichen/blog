@@ -16,7 +16,7 @@ export default () => {
 
     return (
       <div className="flex border-b" key={post.id}>
-        <div className="pt-4 pr-4" style={{ width: 80 }}>
+        <div className="pt-4 pr-4 w-60px md:w-80px">
           <img src="https://cdn.yuyichen.space/avatar.jpg" alt="头像" />
         </div>
         <div className="flex-1 py-4 rounded mb-4">
