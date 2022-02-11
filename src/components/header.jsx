@@ -1,4 +1,18 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+
 export default () => {
+  const [hitokotoData, setHitokotoData] = useState();
+
+  const getHitokotoData = async () => {
+    const { data } = await axios.get("https://v1.hitokoto.cn/?c=f");
+    setHitokotoData(data);
+  };
+
+  useEffect(() => {
+    getHitokotoData();
+  }, []);
+
   return (
     <header className="w-full container mx-auto md:mt-56px">
       <div className="flex flex-col items-center py-12">
@@ -9,6 +23,12 @@ export default () => {
           羽衣尘的博客
         </a>
         <p className="text-lg text-gray-600 mt-4">一位野生前端开发工程师</p>
+        {hitokotoData?.id && (
+          <div className="text-sm italic mt-2 text-gray-500">
+            {hitokotoData.hitokoto}
+            <div className="text-right">—— {hitokotoData.from}</div>
+          </div>
+        )}
       </div>
     </header>
   );
