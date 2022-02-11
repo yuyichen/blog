@@ -6,7 +6,7 @@ export default (props) => {
   const detailLink = `/post/${detail.id}`;
 
   return (
-    <article className="flex flex-col shadow hover:shadow-lg my-4 w-full transition">
+    <article className="flex flex-col shadow hover:shadow-lg my-4 w-full transition rounded overflow-hidden">
       <Link to={detailLink} className="hover:opacity-75 transition">
         <div
           className="h-0 bg-center bg-cover bg-no-repeat bg-gray-200"

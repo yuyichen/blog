@@ -5,7 +5,7 @@ export default () => {
   return (
     <PostList
       defaultQuery={{
-        _limit: 3,
+        _limit: 5,
         "_where[category.id]": 1,
       }}
     />

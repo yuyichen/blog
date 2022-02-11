@@ -29,7 +29,7 @@ export default () => {
 
   return (
     <Loading loading={loading}>
-      <article className="flex flex-col shadow my-4" id="write">
+      <article className="flex flex-col shadow my-4 rounded" id="write">
         {detail.cover && (
           <img className="hover:opacity-75" src={`/api${detail.cover.url}`} />
         )}
@@ -48,7 +48,7 @@ export default () => {
           <Markdown>{detail.content}</Markdown>
         </div>
       </article>
-      <div className="p-4">
+      <div className="p-4 bg-white rounded">
         {detail.title && (
           <Giscus
             repo="yuyichen/blog"
