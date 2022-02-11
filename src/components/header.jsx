@@ -5,7 +5,7 @@ export default () => {
   const [hitokotoData, setHitokotoData] = useState();
 
   const getHitokotoData = async () => {
-    const { data } = await axios.get("https://v1.hitokoto.cn/?c=f");
+    const { data } = await axios.get("https://v1.hitokoto.cn");
     setHitokotoData(data);
   };
 
