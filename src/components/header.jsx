@@ -5,7 +5,8 @@ export default () => {
   const [hitokotoData, setHitokotoData] = useState();
 
   const getHitokotoData = async () => {
-    const { data } = await axios.get("https://v1.hitokoto.cn");
+    // 一言文档地址 https://developer.hitokoto.cn/sentence/#%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E
+    const { data } = await axios.get("https://v1.hitokoto.cn?c=e&c=f&c=j&c=l");
     setHitokotoData(data);
   };
 
