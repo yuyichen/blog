@@ -16,7 +16,7 @@ export default () => {
 
   return (
     <header className="w-full container mx-auto md:mt-56px">
-      <div className="flex flex-col items-center py-12">
+      <div className="flex flex-col items-center py-12 px-4">
         <a
           className="font-bold text-gray-800 uppercase hover:text-gray-700 text-3xl"
           href="#"

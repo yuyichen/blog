@@ -19,7 +19,7 @@ const variants = {
   },
 };
 
-export default ({ link, icon, title, checkActive }) => {
+export default ({ link, icon, title, checkActive, toggle }) => {
   const { pathname } = useLocation();
   const isActive = checkActive(pathname, link);
   return (
@@ -30,6 +30,7 @@ export default ({ link, icon, title, checkActive }) => {
       className={classNames("p-4 block md:inline-block", {
         "font-bold": isActive,
       })}
+      onClick={toggle}
     >
       <NavLink className="block" to={link}>
         {icon && <span className={`iconfont ${icon}`} />}
