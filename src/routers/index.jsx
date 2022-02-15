@@ -2,7 +2,7 @@ import React, { Suspense, lazy, useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import routerConfig from "./config";
 import Layout from "@/components/layout";
-import Loading from "@/components/layout";
+import Loading from "@/components/loading";
 
 const loopRouter = (arr) => {
   return arr.map((x) => {
@@ -30,10 +30,8 @@ const loopRouter = (arr) => {
 export default () => {
   return (
     <HashRouter>
-      <Suspense fallback={<Loading/>}>
-        <Routes>
-          {loopRouter(routerConfig)}
-        </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>{loopRouter(routerConfig)}</Routes>
       </Suspense>
     </HashRouter>
   );

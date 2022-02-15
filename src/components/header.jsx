@@ -27,7 +27,7 @@ export default () => {
         {hitokotoData?.id && (
           <div className="text-sm italic mt-2 text-gray-500">
             {hitokotoData.hitokoto}
-            <div className="text-right">—— {hitokotoData.from}</div>
+            <div className="text-right">from: {hitokotoData.from}</div>
           </div>
         )}
       </div>

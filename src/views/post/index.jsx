@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import dayjs from "dayjs";
@@ -11,9 +11,11 @@ export default () => {
   const [loading, setLoading] = useState(false);
   const [detail, setDetail] = useState({});
 
-  useEffect(async () => {
+  const oldTitle = "羽衣尘的个人技术博客";
+
+  const getPostDetail = async () => {
     setLoading(true);
-    const oldTitle = document.title;
+
     const { data } = await axios.get(`/api/posts/${params.id}`);
     setDetail(data);
     window.scrollTo(0, 0);
@@ -21,11 +23,14 @@ export default () => {
     if (data.title) {
       document.title = `${oldTitle}-${data.title}`;
     }
+  };
 
+  useEffect(() => {
+    getPostDetail();
     return () => {
       document.title = oldTitle;
     };
-  }, [params.id]);
+  }, []);
 
   return (
     <Loading loading={loading}>
@@ -35,7 +40,7 @@ export default () => {
         )}
         <div className="bg-white p-6">
           <span className="inline-block text-xs uppercase px-2 py-1 mb-4 border border-sky-400 text-sky-400 rounded mr-4">
-            {detail.link ? '转发文章': '原创文章'}
+            {detail.link ? "转发文章" : "原创文章"}
           </span>
           <div className="text-3xl font-bold hover:text-gray-700 pb-4">
             {detail.title}
