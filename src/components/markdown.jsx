@@ -39,6 +39,20 @@ export default (props) => {
     }
   }, [containerRef.current?.querySelectorAll("img")?.length]);
 
+  useEffect(() => {
+    // TOC位置显示在aside下方
+    const asideFooterDom = document.querySelector("#asideFooter");
+    const tocDom = document.querySelector("#write nav");
+    if (asideFooterDom && tocDom) {
+      asideFooterDom.appendChild(tocDom);
+      asideFooterDom.classList.remove("hide");
+      return () => {
+        asideFooterDom.removeChild(tocDom);
+        asideFooterDom.classList.add("hide");
+      };
+    }
+  }, []);
+
   return (
     <div ref={containerRef}>
       <ReactMarkdown

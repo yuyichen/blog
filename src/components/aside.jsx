@@ -10,6 +10,7 @@ export default () => {
         </p>
         <img src={donateImg} className="mt-6" />
       </div>
+      <div id="asideFooter" className="bg-white shadow rounded hidden md:block pr-2 text-sm text-blue-400"/>
     </aside>
   );
 };
