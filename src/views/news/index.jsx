@@ -40,7 +40,7 @@ export default () => {
             {isUpdateRecent
               ? updateMoment.fromNow()
               : updateMoment.format("YYYY-MM-DD HH:mm:ss")}
-              <Link className="float-right mr-4 iconfont icon-pinglun" to={`/post/${post.id}`}></Link>
+              {/* <Link className="float-right mr-4 iconfont icon-pinglun" to={`/post/${post.id}`}></Link> */}
           </div>
         </div>
       </div>

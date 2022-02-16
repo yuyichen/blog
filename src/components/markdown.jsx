@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm"; // github风格表格、链接、checklist
 import CodeBox from "@/components/code-box";
@@ -8,10 +8,27 @@ import "highlight.js/styles/atom-one-dark-reasonable.css";
 import Viewer from "viewerjs"; // 图片预览
 import "viewerjs/dist/viewer.min.css";
 import classNames from "classnames";
+import rehypeToc from "@jsdevtools/rehype-toc";
 
 export default (props) => {
   const [gallery, setGallery] = useState();
   const containerRef = useRef();
+
+  const generateHeadingMap = () => {
+    // 为heading元素添加id，方便定位
+    const headings = ["h1", "h2", "h3", "h4", "h5", "h6"];
+    const map = {};
+    headings.forEach((X) => {
+      map[X] = (headProp) => {
+        const position = headProp.node.position;
+        const headingId = `id_${position.start.line}_${position.end.line}`;
+        return <X id={headingId}>{headProp.children}</X>;
+      };
+    });
+    return map;
+  };
+
+  const headingMap = useMemo(generateHeadingMap, []);
 
   useEffect(async () => {
     if (containerRef.current?.querySelectorAll("img")?.length > 0) {
@@ -27,10 +44,31 @@ export default (props) => {
       <ReactMarkdown
         linkTarget="_blank"
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight, rehypeRaw]}
+        rehypePlugins={[
+          rehypeHighlight,
+          rehypeRaw,
+          [
+            rehypeToc,
+            {
+              customizeTOCItem: (toc, heading) => {
+                toc.properties.onClick = (e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  const position = heading.position;
+                  const headingId = `id_${position.start.line}_${position.end.line}`;
+                  if (headingId) {
+                    document
+                      .querySelector(`#${headingId}`)
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }
+                };
+                return toc;
+              },
+            },
+          ],
+        ]}
         components={{
-          // // Use h2s instead of h1s
-          // h1: "h2",
+          ...headingMap,
           // // Use a component instead of hrs
           // hr: ({ node, ...props }) => <MyFancyRule {...props} />,
           img: ({ node, ...props }) => (
