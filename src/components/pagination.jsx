@@ -28,14 +28,6 @@ export default (props) => {
 
   return (
     <div className="flex items-center py-8">
-      {/* {current - 1 >= 0 && (
-        <a
-          onClick={() => changePage(current - 1)}
-          className="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3 cursor-pointer"
-        >
-          Prev <i className="fas fa-arrow-right ml-2"></i>
-        </a>
-      )} */}
       {arr.map((x, i) => {
         return (
           <span
@@ -43,7 +35,9 @@ export default (props) => {
             onClick={() => changePage(x - 1)}
             className={classNames(
               "h-10 w-10 hover:bg-blue-600 hover:text-white font-semibold text-sm flex items-center justify-center cursor-pointer transition",
-              current + 1 === x ? "bg-blue-800  text-white" : "text-gray-800"
+              current + 1 === x
+                ? "bg-blue-800  text-white"
+                : "text-gray-800 dark:text-gray-400"
             )}
           >
             {x}
@@ -53,7 +47,7 @@ export default (props) => {
       {current + 1 < totalPages && (
         <span
           onClick={() => changePage(current + 1)}
-          className="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3 cursor-pointer"
+          className="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 text-sm flex items-center justify-center ml-3 cursor-pointer transition"
         >
           Next <i className="fas fa-arrow-right ml-2"></i>
         </span>

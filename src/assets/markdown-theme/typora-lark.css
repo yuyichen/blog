@@ -37,7 +37,15 @@
   --heading-char-color: #3370ff;
   /* Mermaid diagrams*/
   --mermaid-theme: default;
+}
+.dark #write{
+  --text-color: rgb(156, 163, 175);
+}
+.dark #write pre code{
+  box-shadow: 4px 4px 20px #333;
+}
 
+#write {
   line-height: 1.68;
   -webkit-text-size-adjust: 100%;
   /* max-width: 860px; */
@@ -47,7 +55,7 @@
     Segoe UI, PingFang SC, Microsoft Yahei, Hiragino Sans GB, sans-serif,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-size: 16px;
-  color: #1f2329;
+  color: var(--text-color, #1f2329);
   /* spacing */
   /* block */
   /* list */

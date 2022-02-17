@@ -27,11 +27,39 @@ const sidebar = {
   },
 };
 
+const checkDarkMode = () => {
+  return (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+};
+
 export default () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
   const [navCls, setNavCls] = useState();
+  const [isDarkMode, setIsDarkMode] = useState(checkDarkMode());
+
+  const loadTheme = () => {
+    const isDarkBefore = checkDarkMode();
+    if (isDarkBefore) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    setIsDarkMode(!isDarkBefore);
+  };
+
+  const toggleDarkMode = () => {
+    if (checkDarkMode()) {
+      localStorage.removeItem("theme");
+    } else {
+      localStorage.theme = "dark";
+    }
+    loadTheme();
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -45,12 +73,26 @@ export default () => {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    loadTheme();
+  }, []);
+
+  const darkModeEl = (
+    <a
+      className="cursor-pointer px-4 text-lg relative"
+      onClick={toggleDarkMode}
+      title="切换主题"
+    >
+      {checkDarkMode() ? "🌚" : "🌞"}
+    </a>
+  );
+
   return (
     <>
       {isOpen && <div className="fixed z-1 inset-0" onClick={toggleOpen} />}
       <motion.nav
         className={classNames(
-          "fixed z-2 top-0 left-0 pb-4 pr-4 md:hidden",
+          "fixed flex flex-col z-2 top-0 left-0 pb-4 pr-4 md:hidden",
           navCls
         )}
         initial={false}
@@ -64,13 +106,15 @@ export default () => {
         />
         <MenuToggle toggle={toggleOpen} />
         <Navigation toggle={toggleOpen} />
+        {/* {isOpen && darkModeEl} */}
       </motion.nav>
       <motion.nav
         className={classNames(
-          "hidden md:block fixed z-1 top-0 left-0 right-0 bg-gray-200 bg-opacity-60 shadow backdrop-filter backdrop-blur"
+          "hidden md:flex md:items-center fixed z-1 top-0 left-0 right-0 bg-gray-200 bg-opacity-60 shadow backdrop-filter backdrop-blur"
         )}
       >
         <Navigation toggle={toggleOpen} />
+        {darkModeEl}
       </motion.nav>
     </>
   );

@@ -36,7 +36,7 @@ export default () => {
               </div>
             )}
           </div>
-          <div className="text-xs text-gray-400 mt-4">
+          <div className="text-xs text-gray-400 dark:text-gray-200 mt-4">
             {isUpdateRecent
               ? updateMoment.fromNow()
               : updateMoment.format("YYYY-MM-DD HH:mm:ss")}

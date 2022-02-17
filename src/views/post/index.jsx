@@ -34,26 +34,26 @@ export default () => {
 
   return (
     <Loading loading={loading}>
-      <article className="flex flex-col shadow my-4 rounded" id="write">
+      <article className="flex flex-col shadow dark:border dark:border-gray-800 my-4 rounded" id="write">
         {detail.cover && (
           <img className="hover:opacity-75" src={`/api${detail.cover.url}`} />
         )}
-        <div className="bg-white p-6">
+        <div className="bg-white dark:bg-black p-6">
           <span className="inline-block text-xs uppercase px-2 py-1 mb-4 border border-sky-400 text-sky-400 rounded mr-4">
             {detail.link ? "转发文章" : "原创文章"}
           </span>
-          <div className="text-3xl font-bold hover:text-gray-700 pb-4">
+          <div className="text-3xl font-bold hover:text-gray-700 dark:hover:text-gray-400 pb-4 transition">
             {detail.title}
           </div>
           <p className="text-sm pb-8">
             By
-            <a className="font-semibold hover:text-gray-800">羽衣尘</a>, 更新于
+            <a className="font-semibold hover:text-gray-800 dark:hover:text-gray-400 transition">羽衣尘</a>, 更新于
             {dayjs(detail.updated_at).format("YYYY-MM-DD: HH:mm:ss")}
           </p>
           <Markdown>{detail.content}</Markdown>
         </div>
       </article>
-      <div className="p-4 bg-white rounded">
+      <div className="p-4 bg-white dark:bg-black rounded">
         {detail.title && (
           <Giscus
             repo="yuyichen/blog"

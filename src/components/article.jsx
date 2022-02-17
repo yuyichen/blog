@@ -6,7 +6,7 @@ export default (props) => {
   const detailLink = `/post/${detail.id}`;
 
   return (
-    <article className="flex flex-col shadow hover:shadow-lg my-4 w-full transition rounded overflow-hidden">
+    <article className="flex flex-col shadow hover:shadow-lg dark:border dark:border-gray-800 my-4 w-full transition rounded overflow-hidden">
       <Link to={detailLink} className="hover:opacity-75 transition">
         <div
           className="h-0 bg-center bg-cover bg-no-repeat bg-gray-200"
@@ -20,7 +20,7 @@ export default (props) => {
           }}
         />
       </Link>
-      <div className="bg-white flex flex-col justify-start p-6">
+      <div className="bg-white dark:bg-black flex flex-col justify-start p-6">
         {Array.isArray(detail.tags) &&
           detail.tags.map((x) => (
             <a
@@ -34,13 +34,13 @@ export default (props) => {
 
         <Link
           to={detailLink}
-          className="text-2xl font-bold hover:text-gray-700 pb-4"
+          className="text-2xl font-bold hover:text-gray-700 dark:hover:text-gray-400 pb-4 transition"
         >
           {detail.title}
         </Link>
-        <p href="#" className="text-sm text-gray-600 pb-3">
+        <p className="text-sm text-gray-600 dark:text-gray-300 pb-3">
           By
-          <a href="#" className="font-semibold hover:text-gray-800">
+          <a href="#" className="font-semibold hover:text-gray-800 dark:hover:text-gray-400 transition">
             羽衣尘
           </a>
           ， 更新于 {dayjs(detail.updated_at).format("YYYY-MM-DD HH:mm:ss")}
@@ -50,12 +50,6 @@ export default (props) => {
             {detail.description}
           </Link>
         )}
-        {/* <Link
-          to={detailLink}
-          className="uppercase text-gray-800 hover:text-black"
-        >
-          阅读全文 <i className="fas fa-arrow-right"></i>
-        </Link> */}
       </div>
     </article>
   );

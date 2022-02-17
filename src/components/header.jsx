@@ -18,14 +18,16 @@ export default () => {
     <header className="w-full container mx-auto md:mt-56px">
       <div className="flex flex-col items-center py-12 px-4">
         <a
-          className="font-bold text-gray-800 uppercase hover:text-gray-700 text-3xl"
+          className="font-bold text-gray-800 uppercase hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-3xl transition"
           href="#"
         >
           羽衣尘的博客
         </a>
-        <p className="text-lg text-gray-600 mt-4">一位野生前端开发工程师</p>
+        <p className="text-lg text-gray-600 mt-4 dark:text-gray-300">
+          一位野生前端开发工程师
+        </p>
         {hitokotoData?.id && (
-          <div className="text-sm italic mt-2 text-gray-500">
+          <div className="text-sm italic mt-2 text-gray-500 dark:text-gray-300">
             {hitokotoData.hitokoto}
             <div className="text-right">from: {hitokotoData.from}</div>
           </div>
