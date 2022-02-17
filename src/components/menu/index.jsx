@@ -66,11 +66,14 @@ export default () => {
       setNavCls("bottom-0 nav-width");
       document.body.classList.add("overflow-hidden");
     } else {
+      document.body.classList.remove("overflow-hidden");
       setTimeout(() => {
         setNavCls("");
-        document.body.classList.remove("overflow-hidden");
-      }, 2000);
+      }, 600);
     }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
   }, [isOpen]);
 
   useEffect(() => {
