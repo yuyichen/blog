@@ -62,6 +62,11 @@ export default () => {
   };
 
   useEffect(() => {
+    const isMinNav =
+      window.getComputedStyle(containerRef?.current).display !== "none";
+    if (!isMinNav) {
+      return;
+    }
     if (isOpen) {
       setNavCls("bottom-0 nav-width");
       document.body.classList.add("overflow-hidden");
