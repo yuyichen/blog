@@ -15,13 +15,15 @@ export default () => {
     const isUpdateRecent = dayjs() - updateMoment < 7 * 24 * 3600000;
 
     return (
-      <div className="flex border-b" key={post.id}>
+      <div className="flex border-b dark:border-gray-800" key={post.id}>
         <div className="pt-4 pr-4 w-60px md:w-80px">
           <img src="https://cdn.yuyichen.space/avatar.jpg" alt="头像" />
         </div>
         <div className="flex-1 py-4 rounded mb-4">
           {post.description && (
-            <div className="pb-4 mb-4 border-b">{post.description}</div>
+            <div className="pb-4 mb-4 border-b dark:border-gray-800">
+              {post.description}
+            </div>
           )}
           <div className="p-4 bg-gray-100 rounded-sm">
             <div>
@@ -31,7 +33,7 @@ export default () => {
               </a>
             </div>
             {post.content && (
-              <div className="border-t pt-4 mt-2">
+              <div className="border-t dark:border-gray-800 pt-4 mt-2">
                 <Markdown>{post.content}</Markdown>
               </div>
             )}
@@ -40,7 +42,7 @@ export default () => {
             {isUpdateRecent
               ? updateMoment.fromNow()
               : updateMoment.format("YYYY-MM-DD HH:mm:ss")}
-              {/* <Link className="float-right mr-4 iconfont icon-pinglun" to={`/post/${post.id}`}></Link> */}
+            {/* <Link className="float-right mr-4 iconfont icon-pinglun" to={`/post/${post.id}`}></Link> */}
           </div>
         </div>
       </div>

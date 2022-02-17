@@ -1,6 +1,6 @@
 export default () => {
   return (
-    <footer className="w-full border-t text-gray-600 dark:text-gray-300">
+    <footer className="w-full border-t text-gray-600 dark:text-gray-300 dark:border-gray-800">
       <div className="w-full container mx-auto flex flex-col items-center">
         <div className="flex text-center justify-between py-3">
           <a
