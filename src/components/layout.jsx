@@ -13,11 +13,11 @@ export default (props) => {
       <Header />
       <div className="container mx-auto flex flex-wrap py-6">
         {
-          <section className="w-full md:w-2/3 flex flex-col items-center px-3">
+          <section className="w-full flex flex-col items-center px-3">
             {children}
           </section>
         }
-        <Aside />
+        {/* <Aside /> */}
       </div>
 
       <Footer />

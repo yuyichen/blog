@@ -15,18 +15,25 @@ const variants = {
 const menus = [
   {
     link: "/",
-    title: "技术",
+    title: "文章",
     checkActive: (pathname, link) => {
       return pathname === "/" || pathname.startsWith("/post");
     },
   },
   {
-    link: "/news",
-    title: "观点",
+    link: "/about",
+    title: "关于",
     checkActive: (pathname, link) => {
-      return pathname.startsWith("/news");
+      return pathname === "/about";
     },
   },
+  // {
+  //   link: "/news",
+  //   title: "观点",
+  //   checkActive: (pathname, link) => {
+  //     return pathname.startsWith("/news");
+  //   },
+  // },
 ];
 
 export default (props) => (

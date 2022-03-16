@@ -15,16 +15,6 @@ export default [
     component: "post",
   },
   {
-    name: "设计",
-    path: "/design",
-    component: "design",
-  },
-  {
-    name: "资讯",
-    path: "/news",
-    component: "news",
-  },
-  {
     name: "关于",
     path: "/about",
     component: "about",

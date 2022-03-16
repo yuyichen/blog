@@ -8,6 +8,7 @@ export default (props) => {
   const {
     defaultQuery = {},
     renderItem = (post, index) => <Article key={post.id} detail={post} />,
+    ...rest
   } = props;
 
   const { query, setQuery, list, count, loading } = useListService({
@@ -16,8 +17,10 @@ export default (props) => {
   });
 
   return (
-    <Loading loading={loading} className="w-full">
-      {list.map(renderItem)}
+    <Loading loading={loading}>
+      <div {...rest}>
+        {list.map(renderItem)}
+      </div>
       {count > query._limit && (
         <Pagination
           start={query._start}
