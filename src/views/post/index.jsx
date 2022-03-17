@@ -43,7 +43,7 @@ export default () => {
   `;
 
   return (
-    <Loading loading={loading}>
+    <Loading loading={loading} className="max-w-screen-lg">
       <article className="flex flex-col shadow dark:border dark:border-gray-800 my-4 rounded">
         {detail.cover && (
           <img className="hover:opacity-75" src={`/api${detail.cover.url}`} />
