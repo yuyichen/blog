@@ -4,6 +4,7 @@ import useDimensions from "./useDimensions";
 import MenuToggle from "./toggle";
 import Navigation from "./list";
 import classNames from "classnames";
+import ThemeSwitch from "../theme-switch";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -27,39 +28,11 @@ const sidebar = {
   },
 };
 
-const checkDarkMode = () => {
-  return (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  );
-};
-
 export default () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
   const [navCls, setNavCls] = useState();
-  const [isDarkMode, setIsDarkMode] = useState(checkDarkMode());
-
-  const loadTheme = () => {
-    const isDarkBefore = checkDarkMode();
-    if (isDarkBefore) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    setIsDarkMode(!isDarkBefore);
-  };
-
-  const toggleDarkMode = () => {
-    if (checkDarkMode()) {
-      localStorage.removeItem("theme");
-    } else {
-      localStorage.theme = "dark";
-    }
-    loadTheme();
-  };
 
   useEffect(() => {
     const isMinNav =
@@ -81,19 +54,7 @@ export default () => {
     };
   }, [isOpen]);
 
-  useEffect(() => {
-    loadTheme();
-  }, []);
-
-  const darkModeEl = (
-    <a
-      className="cursor-pointer px-4 text-lg relative"
-      onClick={toggleDarkMode}
-      title="切换主题"
-    >
-      {checkDarkMode() ? "🌚" : "🌞"}
-    </a>
-  );
+  const darkModeEl = <ThemeSwitch className="mr-2" />;
 
   return (
     <>
