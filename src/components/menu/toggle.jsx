@@ -13,8 +13,8 @@ export default ({ toggle, ...rest }) => (
   <button
     onClick={toggle}
     {...rest}
-    className="relative z-3 mt-30px ml-30px outline-none"
-    style={{ "-webkit-tap-highlight-color": "transparent" }}
+    className="relative z-3 mt-30px ml-30px"
+    style={{ outline: "none", "-webkit-tap-highlight-color": "transparent" }}
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
