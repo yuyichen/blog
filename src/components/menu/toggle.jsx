@@ -14,7 +14,7 @@ export default ({ toggle, ...rest }) => (
     onClick={toggle}
     {...rest}
     className="relative z-3 mt-30px ml-30px"
-    style={{ outline: "none", "-webkit-tap-highlight-color": "transparent" }}
+    style={{ outline: "none", WebkitTapHighlightColor: "transparent" }}
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path

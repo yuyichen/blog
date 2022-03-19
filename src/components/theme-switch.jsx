@@ -13,26 +13,37 @@ export default (props) => {
   const [isDarkMode, setIsDarkMode] = useState(checkDarkMode());
 
   const loadTheme = () => {
-    const isDarkBefore = checkDarkMode();
-    if (isDarkBefore) {
+    if (isDarkMode) {
       document.documentElement.classList.add("dark");
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        localStorage.removeItem("theme");
+      } else {
+        localStorage.theme = "dark";
+      }
     } else {
+      localStorage.removeItem("theme");
       document.documentElement.classList.remove("dark");
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        localStorage.theme = "light";
+      } else {
+        localStorage.removeItem("theme");
+      }
     }
-    setIsDarkMode(isDarkBefore);
   };
 
   const toggleDarkMode = () => {
-    if (checkDarkMode()) {
-      localStorage.removeItem("theme");
-    } else {
-      localStorage.theme = "dark";
-    }
-    loadTheme();
+    setIsDarkMode(!isDarkMode);
   };
 
   useEffect(() => {
     loadTheme();
+  }, [isDarkMode]);
+
+  useEffect(() => {
+    window.matchMedia("(prefers-color-scheme: dark)").onchange = (val) => {
+      setIsDarkMode(val.matches);
+    };
+    return (window.matchMedia("(prefers-color-scheme: dark)").onchange = null);
   }, []);
 
   return (
