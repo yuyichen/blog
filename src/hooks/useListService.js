@@ -55,7 +55,7 @@ export default (props) => {
     query,
     setQuery,
     list,
-    setList,
+    getList,
     count,
     loading,
   };

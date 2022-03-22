@@ -27,7 +27,7 @@
   --rawblock-edit-panel-bd: #f5f6f7;
   --window-border: 0 solid white;
   --control-text-color: #1f2329;
-  --primary-color: rgb(14 165 233);
+  --primary-color: rgb(14, 165, 233);
   /* --primary-btn-border-color: #3370ff;
   --active-file-border-color: #3370ff;
   --primary-btn-text-color: #3370ff;
@@ -215,9 +215,10 @@
   color: inherit;
 }
 #write table {
-  color: black;
+  width: 100%;
+  /* color: black; */
   border-collapse: collapse;
-  background-color: white;
+  /* background-color: white; */
   border-spacing: 2px;
   font-size: 1em;
 }
@@ -288,10 +289,17 @@
 }
 #write blockquote {
   display: block;
+  width: 100%;
   margin-left: 0;
-  padding-left: 14px;
-  border-left: 4px solid var(--primary-color);
+  margin-bottom: 16px;
+  padding: 16px;
+  border-left: 6px solid var(--primary-color);
   color: var(--text-color, #1f2329);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+.dark #write blockquote {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 #write pre code {
   border-radius: 4px;
