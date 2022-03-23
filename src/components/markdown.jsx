@@ -129,11 +129,11 @@ export default (props) => {
           },
           p: ({ node, ...props }) => {
             return <p {...props}>
-              {node.children.map(x => {
-                if(x.type === 'text') {
-                  return <span dangerouslySetInnerHTML={{__html: filterText(x.value)}}/>;
+              {props.children.map((x, i) => {
+                if(typeof x === 'string') {
+                  return <span key={i} dangerouslySetInnerHTML={{__html: filterText(x)}}/>;
                 } else {
-                  return x.value
+                  return x
                 }
               })}  
             </p>
