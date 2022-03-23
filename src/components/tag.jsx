@@ -12,10 +12,10 @@ export default (props) => {
   };
   const cfg = map[type];
   return (
-    <div
+    <span
       className={`${cfg.className} inline-block px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block ${props.className}`}
     >
       <span>{cfg.text}</span>
-    </div>
+    </span>
   );
 };

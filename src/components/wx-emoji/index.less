@@ -1,0 +1,18 @@
+.emoji {
+  display: inline-block;
+  vertical-align: middle;
+  width: 2em;
+  height: 2em;
+  background-image: url("../../assets/imgs/qqface.png");
+  background-size: 20em;
+  background-repeat: no-repeat;
+}
+
+.xkd(@n, @i: 0) when (@i =< @n) {
+  .emoji-@{i} {
+    background-position: (-(@i - floor(@i/8)*8)*2.6em + 0.2em) -(floor(@i / 8)*2.6em);
+  }
+  .xkd(@n, (@i + 1));
+}
+
+.xkd(108);

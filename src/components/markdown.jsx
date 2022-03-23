@@ -9,6 +9,8 @@ import Viewer from "viewerjs"; // 图片预览
 import "viewerjs/dist/viewer.min.css";
 import classNames from "classnames";
 import rehypeToc from "@jsdevtools/rehype-toc";
+import emojiMap from "@/components/wx-emoji";
+import '@/components/wx-emoji/index.less';
 
 export default (props) => {
   const [gallery, setGallery] = useState();
@@ -29,6 +31,16 @@ export default (props) => {
   };
 
   const headingMap = useMemo(generateHeadingMap, []);
+
+  const filterText = text => {
+    if (!text) return "";
+    return text.replace(/\[(.*?)\]/g, (match, p1) => {
+      if (p1 in emojiMap) {
+        return `<span class="emoji ${emojiMap[p1]}"></span>`;
+      }
+      return text;
+    });
+  }
 
   useEffect(async () => {
     if (containerRef.current?.querySelectorAll("img")?.length > 0) {
@@ -115,6 +127,17 @@ export default (props) => {
               <CodeBox {...rest} />
             );
           },
+          p: ({ node, ...props }) => {
+            return <p {...props}>
+              {node.children.map(x => {
+                if(x.type === 'text') {
+                  return <span dangerouslySetInnerHTML={{__html: filterText(x.value)}}/>;
+                } else {
+                  return x.value
+                }
+              })}  
+            </p>
+          }
         }}
       >
         {props.children}
