@@ -98,18 +98,21 @@ export default (props) => {
           // // Use a component instead of hrs
           // hr: ({ node, ...props }) => <MyFancyRule {...props} />,
           img: ({ node, ...props }) => (
-            <img
-              {...props}
-              className={classNames(props.className, "zoom-in")}
-              onClick={() => {
-                if (gallery) {
-                  const index = gallery.images?.findIndex(
-                    (x) => x.src === props.src
-                  );
-                  gallery.view(index);
-                }
-              }}
-            />
+            <div className="my-4 text-center">
+              <img
+                {...props}
+                className={classNames(props.className, "zoom-in")}
+                onClick={() => {
+                  if (gallery) {
+                    const index = gallery.images?.findIndex(
+                      (x) => x.src === props.src
+                    );
+                    gallery.view(index);
+                  }
+                }}
+              />
+              {props.alt && <div className="mt-2 text-sm opacity-80">{props.alt}</div>}
+            </div>
           ),
           code: ({ node, ...props }) => {
             const { inline, ...rest } = props;
