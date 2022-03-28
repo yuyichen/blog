@@ -3,6 +3,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm"; // github风格表格、链接、checklist
 import CodeBox from "@/components/code-box";
 import rehypeHighlight from "rehype-highlight"; // 代码高亮
+import bash from 'highlight.js/lib/languages/bash';
+import json from 'highlight.js/lib/languages/json';
 import rehypeRaw from "rehype-raw"; // 支持markdown中的html代码
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 import Viewer from "viewerjs"; // 图片预览
@@ -71,7 +73,15 @@ export default (props) => {
         linkTarget="_blank"
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[
-          rehypeHighlight,
+          [
+            rehypeHighlight,
+            {
+              languages: {
+                bash,
+                json,
+              }
+            }
+          ],
           rehypeRaw,
           [
             rehypeToc,
