@@ -6,7 +6,7 @@ export default () => {
           <a
             href="https://github.com/yuyichen/"
             target="_blank"
-            className="px-3 hover:text-blue-500 transition"
+            className="px-3 hover:text-gray-900 transition"
             title="github"
           >
             <span className="iconfont icon-github" />
@@ -14,7 +14,7 @@ export default () => {
           <a
             href="https://weibo.com/u/2617682101"
             target="_blank"
-            className="px-3 hover:text-blue-500 transition"
+            className="px-3 hover:text-red-600 transition"
             title="weibo"
           >
             <span className="iconfont icon-weibo-fill" />
@@ -22,7 +22,7 @@ export default () => {
           <a
             href="https://www.zhihu.com/people/li-li-28-1-49"
             target="_blank"
-            className="px-3 hover:text-blue-500 transition"
+            className="px-3 hover:text-blue-600 transition"
             title="知乎"
           >
             <span className="iconfont icon-29" />
@@ -30,10 +30,19 @@ export default () => {
           <a
             href="https://huaban.com/jaawfnb7wg/"
             target="_blank"
-            className="px-3 hover:text-blue-500 transition"
+            className="px-3 hover:text-red-400 transition"
             title="花瓣"
           >
             <span className="iconfont icon-huaban" />
+          </a>
+          <span className="border-l mx-2"/>
+          <a
+            href="https://yuyichen.space/rss"
+            target="_blank"
+            className="px-3 transition"
+            title="RSS订阅"
+          >
+            <span className="iconfont icon-RSS text-13px text-orange-500"/>
           </a>
         </div>
         <div className="pb-2">浙ICP备2021034868号-1</div>
