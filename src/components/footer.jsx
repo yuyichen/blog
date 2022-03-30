@@ -6,7 +6,7 @@ export default () => {
           <a
             href="https://github.com/yuyichen/"
             target="_blank"
-            className="px-3 hover:text-gray-900 transition"
+            className="px-3 hover:text-gray-900 dark:hover:text-gray-400 transition"
             title="github"
           >
             <span className="iconfont icon-github" />
@@ -30,12 +30,12 @@ export default () => {
           <a
             href="https://huaban.com/jaawfnb7wg/"
             target="_blank"
-            className="px-3 hover:text-red-400 transition"
+            className="px-3 hover:text-red-500 transition"
             title="花瓣"
           >
             <span className="iconfont icon-huaban" />
           </a>
-          <span className="border-l mx-2"/>
+          <span className="border-l dark:border-gray-400 mx-2"/>
           <a
             href="https://yuyichen.space/rss"
             target="_blank"
