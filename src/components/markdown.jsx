@@ -3,8 +3,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm"; // github风格表格、链接、checklist
 import CodeBox from "@/components/code-box";
 import rehypeHighlight from "rehype-highlight"; // 代码高亮
-import bash from 'highlight.js/lib/languages/bash';
-import json from 'highlight.js/lib/languages/json';
+import bash from "highlight.js/lib/languages/bash";
+import json from "highlight.js/lib/languages/json";
 import rehypeRaw from "rehype-raw"; // 支持markdown中的html代码
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 import Viewer from "viewerjs"; // 图片预览
@@ -12,7 +12,7 @@ import "viewerjs/dist/viewer.min.css";
 import classNames from "classnames";
 import rehypeToc from "@jsdevtools/rehype-toc";
 import emojiMap from "@/components/wx-emoji";
-import '@/components/wx-emoji/index.less';
+import "@/components/wx-emoji/index.less";
 
 export default (props) => {
   const [gallery, setGallery] = useState();
@@ -34,7 +34,7 @@ export default (props) => {
 
   const headingMap = useMemo(generateHeadingMap, []);
 
-  const filterText = text => {
+  const filterText = (text) => {
     if (!text) return "";
     return text.replace(/\[(.*?)\]/g, (match, p1) => {
       if (p1 in emojiMap) {
@@ -42,7 +42,7 @@ export default (props) => {
       }
       return text;
     });
-  }
+  };
 
   useEffect(async () => {
     if (containerRef.current?.querySelectorAll("img")?.length > 0) {
@@ -79,8 +79,8 @@ export default (props) => {
               languages: {
                 bash,
                 json,
-              }
-            }
+              },
+            },
           ],
           rehypeRaw,
           [
@@ -108,7 +108,7 @@ export default (props) => {
           // // Use a component instead of hrs
           // hr: ({ node, ...props }) => <MyFancyRule {...props} />,
           img: ({ node, ...props }) => (
-            <div className="my-4 text-center">
+            <span className="block my-4 text-center">
               <img
                 {...props}
                 className={classNames(props.className, "zoom-in")}
@@ -121,14 +121,18 @@ export default (props) => {
                   }
                 }}
               />
-              {props.alt && <div className="mt-2 text-sm opacity-80">{props.alt}</div>}
-            </div>
+              {props.alt && (
+                <span className="block mt-2 text-sm opacity-80">
+                  {props.alt}
+                </span>
+              )}
+            </span>
           ),
           code: ({ node, ...props }) => {
             const { inline, ...rest } = props;
             return inline ? (
               <code
-                className="p-1 rounded-sm"
+                className="px-1 py-0.5 mx-1 rounded-sm"
                 style={{
                   color: "#c7254e",
                   backgroundColor: "#f9f2f4",
@@ -141,16 +145,23 @@ export default (props) => {
             );
           },
           p: ({ node, ...props }) => {
-            return <p {...props}>
-              {props.children.map((x, i) => {
-                if(typeof x === 'string') {
-                  return <span key={i} dangerouslySetInnerHTML={{__html: filterText(x)}}/>;
-                } else {
-                  return x
-                }
-              })}  
-            </p>
-          }
+            return (
+              <p {...props}>
+                {props.children.map((x, i) => {
+                  if (typeof x === "string") {
+                    return (
+                      <span
+                        key={i}
+                        dangerouslySetInnerHTML={{ __html: filterText(x) }}
+                      />
+                    );
+                  } else {
+                    return x;
+                  }
+                })}
+              </p>
+            );
+          },
         }}
       >
         {props.children}
