@@ -2,12 +2,12 @@ import { useRef, useState } from "react";
 import copy from "copy-to-clipboard";
 
 export default (props) => {
-  const { children, ...rest } = props;
+  const { children, className, ...rest } = props;
   const [copyed, setCopyed] = useState(false);
 
   const codeBoxRef = useRef();
   return (
-    <code {...rest}>
+    <code className={`${className} group`} {...rest}>
       <div className="mb-4 flex">
         <div className="flex-1">
           <svg
@@ -45,7 +45,7 @@ export default (props) => {
           </svg>
         </div>
         <span
-          className="cursor-pointer text-xs inline-block w-6 text-center"
+          className="cursor-pointer text-xs inline-block w-6 text-center opacity-0 group-hover:opacity-100 transition"
           onClick={() => {
             copy(codeBoxRef.current?.outerText);
             setCopyed(true);
