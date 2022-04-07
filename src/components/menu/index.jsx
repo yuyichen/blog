@@ -3,6 +3,7 @@ import { motion, useCycle } from "framer-motion";
 import useDimensions from "./useDimensions";
 import MenuToggle from "./toggle";
 import Navigation from "./list";
+import Search from "./search";
 import classNames from "classnames";
 import ThemeSwitch from "../theme-switch";
 
@@ -79,10 +80,11 @@ export default () => {
       </motion.nav>
       <motion.nav
         className={classNames(
-          "hidden md:flex md:items-center fixed z-1 top-0 left-0 right-0 bg-gray-200 bg-opacity-60 shadow backdrop-filter backdrop-blur"
+          "hidden md:flex md:space-between md:items-center fixed z-1 top-0 left-0 right-0 bg-gray-200 bg-opacity-60 shadow backdrop-filter backdrop-blur"
         )}
       >
         <Navigation toggle={toggleOpen} />
+        <Search className="mr-4"/>
         {darkModeEl}
       </motion.nav>
     </>

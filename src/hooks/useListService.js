@@ -23,14 +23,16 @@ export default (props) => {
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  const getList = async () => {
+  const getList = async (params) => {
     setLoading(true);
+    const _query = { ...query, ...params };
+    setQuery(_query);
     const [{ data: data1 }, { data: data2 }] = await Promise.all([
       axios.get(`/api/${entityName}`, {
-        params: query,
+        params: _query,
       }),
       axios.get(`/api/${entityName}/count`, {
-        params: query,
+        params: _query,
       }),
     ]);
     setLoading(false);
@@ -49,7 +51,7 @@ export default (props) => {
     if (isQueryOnMounted) {
       getList();
     }
-  }, [query]);
+  }, []);
 
   return {
     query,

@@ -31,7 +31,7 @@ export default () => {
     return () => {
       document.title = oldTitle;
     };
-  }, []);
+  }, [params.id]);
 
   const titleClassName =
     "text-3xl font-bold hover:text-gray-700 dark:hover:text-gray-400 pb-4 transition";
@@ -73,6 +73,7 @@ export default () => {
       <div className="p-4 bg-white dark:bg-black rounded">
         {detail.title && (
           <Giscus
+            key={params.id}
             repo="yuyichen/blog"
             repoId={import.meta.env.VITE_REPO_ID}
             category="Announcements"
