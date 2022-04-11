@@ -179,9 +179,7 @@ export default (props) => {
               </p>
             );
           },
-          "x-outer-link": ({ node, ...props }) => {
-            return <OuterLink {...props} />;
-          },
+          "x-outer-link": OuterLink,
         }}
       >
         {props.children}
