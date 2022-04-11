@@ -11,7 +11,7 @@ export default (props) => {
     ...rest
   } = props;
 
-  const { query, setQuery, list, count, loading } = useListService({
+  const { query, setQuery, list, getList, count, loading } = useListService({
     entityName: "posts",
     defaultQuery,
   });
@@ -27,7 +27,7 @@ export default (props) => {
           total={count}
           pageSize={query._limit}
           onChange={(index) => {
-            setQuery({ ...query, _start: query._limit * index });
+            getList({ ...query, _start: query._limit * index });
           }}
         />
       )}
