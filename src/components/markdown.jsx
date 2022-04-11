@@ -21,6 +21,7 @@ import classNames from "classnames";
 import rehypeToc from "@jsdevtools/rehype-toc";
 import emojiMap from "@/components/wx-emoji";
 import "@/components/wx-emoji/index.less";
+import OuterLink from "@/components/outer-link";
 
 export default (props) => {
   const [gallery, setGallery] = useState();
@@ -177,6 +178,9 @@ export default (props) => {
                 })}
               </p>
             );
+          },
+          "x-outer-link": ({ node, ...props }) => {
+            return <OuterLink {...props} />;
           },
         }}
       >

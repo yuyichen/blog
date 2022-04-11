@@ -38,7 +38,7 @@ export default () => {
 
   const markdownContent = `
   ${detail.description ? `> ${detail.description}\n\n` : ""}
-  ${detail.link ? `[查看原文](${detail.link})\n\n` : ""}
+  ${detail.link ? `<x-outer-link href="${detail.link}"/>` : ""}
   ${detail.content || ""}
   `;
 
