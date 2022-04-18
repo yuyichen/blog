@@ -28,10 +28,21 @@ export default (props) => {
 
   return (
     <div className="flex items-center py-8">
+      {arr[0] > 1 && (
+        <span
+          title={`第1页`}
+          className={classNames(
+            "h-10 w-10 hover:bg-blue-600 hover:text-white font-semibold text-sm flex items-center justify-center cursor-pointer transition",
+            "iconfont icon-diyiyeshouyeshangyishou text-lg"
+          )}
+          onClick={() => changePage(0)}
+        />
+      )}
       {arr.map((x, i) => {
         return (
           <span
             key={`${x}_${i}`}
+            title={`第${x}页`}
             onClick={() => changePage(x - 1)}
             className={classNames(
               "h-10 w-10 hover:bg-blue-600 hover:text-white font-semibold text-sm flex items-center justify-center cursor-pointer transition",
@@ -46,11 +57,23 @@ export default (props) => {
       })}
       {current + 1 < totalPages && (
         <span
+          title={`下一页`}
           onClick={() => changePage(current + 1)}
           className="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 text-sm flex items-center justify-center ml-3 cursor-pointer transition"
         >
-          Next <i className="fas fa-arrow-right ml-2"></i>
+          Next
         </span>
+      )}
+
+      {arr[arr.length - 1] < totalPages && (
+        <span
+          title={`第${totalPages}页`}
+          className={classNames(
+            "h-10 w-10 hover:bg-blue-600 hover:text-white font-semibold text-sm flex items-center justify-center cursor-pointer transition",
+            "iconfont icon-zuihouyiyemoyexiayishou text-lg"
+          )}
+          onClick={() => changePage(totalPages - 1)}
+        />
       )}
     </div>
   );
