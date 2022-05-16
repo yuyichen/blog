@@ -22,7 +22,7 @@ export default () => {
     window.scrollTo(0, 0, { behavior: "smooth" });
     setLoading(false);
     if (data.title) {
-      document.title = `${oldTitle}-${data.title}`;
+      document.title = `${data.title}-${oldTitle}`;
     }
   };
 
