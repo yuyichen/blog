@@ -38,9 +38,11 @@ export default () => {
 
   const markdownContent = `
   ${detail.description ? `> ${detail.description}\n\n` : ""}
-  ${detail.link ? `<x-outer-link href="${detail.link}"/>` : ""}
+  ${detail.link ? `<x-outer-link href="${detail.link}"/>\n\n` : ""}
   ${detail.content || ""}
   `;
+
+  console.log(markdownContent);
 
   return (
     <Loading loading={loading} className="max-w-screen-lg">
@@ -66,7 +68,13 @@ export default () => {
             {formatDate(detail.updated_at)}
           </p>
           <div id="write">
-            <Markdown>{markdownContent}</Markdown>
+            {detail.link && (
+              <Markdown>{`<x-outer-link href="${detail.link}"/>\n\n`}</Markdown>
+            )}
+            {detail.description && (
+              <Markdown>{`> ${detail.description}\n\n`}</Markdown>
+            )}
+            <Markdown>{detail.content}</Markdown>
           </div>
         </div>
       </article>
