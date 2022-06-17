@@ -36,14 +36,6 @@ export default () => {
   const titleClassName =
     "text-3xl font-bold hover:text-gray-700 dark:hover:text-gray-400 pb-4 transition";
 
-  const markdownContent = `
-  ${detail.description ? `> ${detail.description}\n\n` : ""}
-  ${detail.link ? `<x-outer-link href="${detail.link}"/>\n\n` : ""}
-  ${detail.content || ""}
-  `;
-
-  console.log(markdownContent);
-
   return (
     <Loading loading={loading} className="max-w-screen-lg">
       <article className="flex flex-col shadow dark:border dark:border-gray-800 my-4 rounded">
