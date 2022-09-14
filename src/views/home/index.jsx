@@ -27,7 +27,8 @@ export default () => {
                 backgroundImage: `url(${
                   post?.cover
                     ? `/api${post.cover?.url}`
-                    : `https://source.unsplash.com/collection/1346951/1000x500?sig=${post.id}`
+                    : `https://picsum.photos/1000/600?random=${post.id}`
+                    // : `https://source.unsplash.com/collection/1346951/1000x500?sig=${post.id}`
                 })`,
               }}
             />
