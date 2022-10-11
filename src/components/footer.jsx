@@ -35,18 +35,22 @@ export default () => {
           >
             <span className="iconfont icon-huaban" />
           </a>
-          <span className="border-l dark:border-gray-400 mx-2"/>
+          <span className="border-l dark:border-gray-400 mx-2" />
           <a
             href="https://yuyichen.space/rss"
             target="_blank"
             className="px-3 transition"
             title="RSS订阅"
           >
-            <span className="iconfont icon-RSS text-13px text-orange-500"/>
+            <span className="iconfont icon-RSS text-13px text-orange-500" />
           </a>
         </div>
-        <div className="pb-2">浙ICP备2021034868号-1</div>
-        <div className="pb-3">&copy; 2021-2024 yuyichen.space</div>
+        <div className="pb-2">
+          <a href="https://beian.miit.gov.cn/" target="_blank">
+            浙ICP备2021034868号-1
+          </a>
+        </div>
+        <div className="pb-3">&copy; 2021-2022 yuyichen.space</div>
       </div>
     </footer>
   );
