@@ -7,7 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@giscus/react": "^1.0.1",
+    "@giscus/react": "^2.2.0",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",

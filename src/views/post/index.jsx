@@ -83,6 +83,7 @@ export default () => {
             emitMetadata="0"
             theme="light"
             lang="zh-CN"
+            loading="lazy"
             // term="..."
           />
         )}
