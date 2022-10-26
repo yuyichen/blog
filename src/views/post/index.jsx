@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loading from "@/components/loading";
 import Markdown from "@/components/markdown";
-import { Giscus } from "@giscus/react";
+import Giscus from "@giscus/react";
 import Tag from "@/components/tag";
 import { formatDate } from "@/utils";
 
