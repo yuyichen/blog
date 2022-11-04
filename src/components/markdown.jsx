@@ -22,6 +22,7 @@ import rehypeToc from "@jsdevtools/rehype-toc";
 import emojiMap from "@/components/wx-emoji";
 import "@/components/wx-emoji/index.less";
 import OuterLink from "@/components/outer-link";
+import Qrcode from './qrcode';
 
 export default (props) => {
   const [gallery, setGallery] = useState();
@@ -180,6 +181,7 @@ export default (props) => {
             );
           },
           "x-outer-link": OuterLink,
+          "x-qrcode": Qrcode,
         }}
       >
         {props.children}
