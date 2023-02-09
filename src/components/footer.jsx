@@ -50,7 +50,7 @@ export default () => {
             浙ICP备2021034868号-1
           </a>
         </div>
-        <div className="pb-3">&copy; 2021-2022 yuyichen.space</div>
+        <div className="pb-3">&copy; 2021-2023 yuyichen.space</div>
       </div>
     </footer>
   );
