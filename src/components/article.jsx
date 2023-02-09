@@ -15,7 +15,7 @@ export default (props) => {
             backgroundImage: `url(${
               detail.cover
                 ? `/api${detail.cover.url}`
-                : `https://workers-ts1.pages.dev/random/1000x600?tech&sig=${detail.id}`
+                : `https://workers-ts1.pages.dev/random/1000x600?${detail.imgTag || 'tech'}&sig=${detail.id}`
                 // : `https://picsum.photos/1000/600?random=${detail.id}`
                 // : `https://source.unsplash.com/collection/1346951/1000x500?sig=${detail.id}`
             })`,
