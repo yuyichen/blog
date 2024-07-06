@@ -27,7 +27,8 @@ export default () => {
                 backgroundImage: `url(${
                   post?.cover
                     ? `/api${post.cover?.url}`
-                    : `https://workers-ts1.pages.dev/random/1000x600?${post.imgTag || 'tech'}&sig=${post.id}`
+                    : `https://u.860529.xyz?w=1000&h=600&query=${post.imgTag || 'tech'}&sig=${post.id}`
+                    // : `https://workers-ts1.pages.dev/random/1000x600?${post.imgTag || 'tech'}&sig=${post.id}`
                     // : `https://picsum.photos/1000/600?random=${post.id}`
                     // : `https://source.unsplash.com/collection/1346951/1000x500?sig=${post.id}`
                 })`,
